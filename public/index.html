@@ -1,0 +1,65 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatterUp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Login Container -->
+    <div class="login-container" id="loginContainer">
+        <h1>Welcome to ChatterUp</h1>
+        <form id="loginForm" class="login-form">
+            <input 
+                type="text" 
+                id="usernameInput" 
+                placeholder="Enter your name" 
+                required 
+                minlength="2"
+                maxlength="20"
+            >
+            <button type="submit" class="login-button">Join Chat</button>
+        </form>
+    </div>
+
+    <!-- Chat Container -->
+    <div class="chat-container hide" id="chatContainer">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>Online Users</h2>
+            </div>
+            <div class="users-list" id="usersList"></div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="main-chat">
+            <div class="chat-header">
+                <h2>Welcome, <span id="currentUser"></span>!</h2>
+                <div class="online-count" id="onlineCount">0 users online</div>
+            </div>
+
+            <div class="messages-container" id="messagesContainer"></div>
+
+            <div class="typing-indicator hide" id="typingIndicator">
+                Someone is typing...
+            </div>
+
+            <form id="messageForm" class="message-form">
+                <input 
+                    type="text" 
+                    id="messageInput" 
+                    placeholder="Type your message..." 
+                    required
+                >
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
